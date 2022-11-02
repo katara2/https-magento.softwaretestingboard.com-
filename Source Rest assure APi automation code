@@ -1,0 +1,610 @@
+package base;
+
+import com.codeborne.selenide.Selenide;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.asserts.SoftAssert;
+
+import java.util.ResourceBundle;
+
+import static com.codeborne.selenide.Selenide.open;
+package api.schema;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.List;
+import io.qameta.allure.Step;
+
+import static com.codeborne.selenide.Selenide.$;
+
+public class MainHomePage {
+
+    private final String HEADER_SEARCH_FIELD = ".GlobalHeaderSearchbar-input.header-GlobalSearch-input";
+    private final String SEARCH_BUTTON = ".elc-icon.elc-icon-search-nav.elc-icon-18";
+
+    public SearchResultPage enterTextToSearchField(String text) {
+        enterText(text);
+        clickSearchIcon();
+        return new SearchResultPage();
+    }
+
+    @Step
+    private void enterText(String text) {
+        $(HEADER_SEARCH_FIELD).setValue(text);
+    }
+
+    @Step
+    private void clickSearchIcon() {
+        $(SEARCH_BUTTON).click();
+    }
+
+}
+public class Item {
+
+    @JsonProperty("itemId")
+    private Integer itemId;
+    @JsonProperty("parentItemId")
+    private Integer parentItemId;
+    @JsonProperty("name")
+    private String name;
+    @JsonProperty("salePrice")
+    private Double salePrice;
+    @JsonProperty("upc")
+    private Double upc;
+    @JsonProperty("categoryPath")
+    private String categoryPath;
+    @JsonProperty("shortDescription")
+    private String shortDescription;
+    @JsonProperty("longDescription")
+    private String longDescription;
+    @JsonProperty("thumbnailImage")
+    private String thumbnailImage;
+    @JsonProperty("mediumImage")
+    private String mediumImage;
+    @JsonProperty("largeImage")
+    private String largeImage;
+    @JsonProperty("productTrackingUrl")
+    private String productTrackingUrl;
+    @JsonProperty("standardShipRate")
+    private Double standardShipRate;
+    @JsonProperty("marketplace")
+    private Boolean marketplace;
+    @JsonProperty("sellerInfo")
+    private String sellerInfo;
+    @JsonProperty("productUrl")
+    private String productUrl;
+    @JsonProperty("categoryNode")
+    private String categoryNode;
+    @JsonProperty("rhid")
+    private String rhid;
+    @JsonProperty("bundle")
+    private Boolean bundle;
+    @JsonProperty("stock")
+    private String stock;
+    @JsonProperty("addToCartUrl")
+    private String addToCartUrl;
+    @JsonProperty("affiliateAddToCartUrl")
+    private String affiliateAddToCartUrl;
+    @JsonProperty("freeShippingOver35Dollars")
+    private Boolean freeShippingOver35Dollars;
+    @JsonProperty("imageEntities")
+    private List<ImageEntity> imageEntities = null;
+    @JsonProperty("offerType")
+    private String offerType;
+    @JsonProperty("availableOnline")
+    private Boolean availableOnline;
+    @JsonProperty("msrp")
+    private Double msrp;
+    @JsonProperty("giftOptions")
+    private GiftOptions giftOptions;
+    @JsonProperty("isTwoDayShippingEligible")
+    private Boolean isTwoDayShippingEligible;
+
+    /**
+     * No args constructor for use in serialization
+     */
+    public Item() {
+    }
+
+    /**
+     * @param freeShippingOver35Dollars
+     * @param affiliateAddToCartUrl
+     * @param standardShipRate
+     * @param thumbnailImage
+     * @param giftOptions
+     * @param productTrackingUrl
+     * @param stock
+     * @param msrp
+     * @param categoryNode
+     * @param mediumImage
+     * @param name
+     * @param longDescription
+     * @param bundle
+     * @param addToCartUrl
+     * @param marketplace
+     * @param imageEntities
+     * @param rhid
+     * @param sellerInfo
+     * @param largeImage
+     * @param parentItemId
+     * @param itemId
+     * @param categoryPath
+     * @param offerType
+     * @param availableOnline
+     * @param shortDescription
+     * @param productUrl
+     * @param salePrice
+     * @param isTwoDayShippingEligible
+     */
+    public Item(Integer itemId, Integer parentItemId, String name, Double salePrice, String categoryPath, String shortDescription, String longDescription, String thumbnailImage, String mediumImage, String largeImage, String productTrackingUrl, Double standardShipRate, Boolean marketplace, String sellerInfo, String productUrl, String categoryNode, String rhid, Boolean bundle, String stock, String addToCartUrl, String affiliateAddToCartUrl, Boolean freeShippingOver35Dollars, List<ImageEntity> imageEntities, String offerType, Boolean availableOnline, Double msrp, GiftOptions giftOptions, Boolean isTwoDayShippingEligible) {
+        super();
+        this.itemId = itemId;
+        this.parentItemId = parentItemId;
+        this.name = name;
+        this.salePrice = salePrice;
+        this.categoryPath = categoryPath;
+        this.shortDescription = shortDescription;
+        this.longDescription = longDescription;
+        this.thumbnailImage = thumbnailImage;
+        this.mediumImage = mediumImage;
+        this.largeImage = largeImage;
+        this.productTrackingUrl = productTrackingUrl;
+        this.standardShipRate = standardShipRate;
+        this.marketplace = marketplace;
+        this.sellerInfo = sellerInfo;
+        this.productUrl = productUrl;
+        this.categoryNode = categoryNode;
+        this.rhid = rhid;
+        this.bundle = bundle;
+        this.stock = stock;
+        this.addToCartUrl = addToCartUrl;
+        this.affiliateAddToCartUrl = affiliateAddToCartUrl;
+        this.freeShippingOver35Dollars = freeShippingOver35Dollars;
+        this.imageEntities = imageEntities;
+        this.offerType = offerType;
+        this.availableOnline = availableOnline;
+        this.msrp = msrp;
+        this.giftOptions = giftOptions;
+        this.isTwoDayShippingEligible = isTwoDayShippingEligible;
+    }
+
+    public Integer getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(Integer itemId) {
+        this.itemId = itemId;
+    }
+
+    public Integer getParentItemId() {
+        return parentItemId;
+    }
+
+    public void setParentItemId(Integer parentItemId) {
+        this.parentItemId = parentItemId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Double getSalePrice() {
+        return salePrice;
+    }
+
+    public void setSalePrice(Double salePrice) {
+        this.salePrice = salePrice;
+    }
+
+    public String getCategoryPath() {
+        return categoryPath;
+    }
+
+    public void setCategoryPath(String categoryPath) {
+        this.categoryPath = categoryPath;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
+    }
+
+    public String getLongDescription() {
+        return longDescription;
+    }
+
+    public void setLongDescription(String longDescription) {
+        this.longDescription = longDescription;
+    }
+
+    public String getThumbnailImage() {
+        return thumbnailImage;
+    }
+
+    public void setThumbnailImage(String thumbnailImage) {
+        this.thumbnailImage = thumbnailImage;
+    }
+
+    public String getMediumImage() {
+        return mediumImage;
+    }
+
+    public void setMediumImage(String mediumImage) {
+        this.mediumImage = mediumImage;
+    }
+
+    public String getLargeImage() {
+        return largeImage;
+    }
+
+    public void setLargeImage(String largeImage) {
+        this.largeImage = largeImage;
+    }
+
+    public String getProductTrackingUrl() {
+        return productTrackingUrl;
+    }
+
+    public void setProductTrackingUrl(String productTrackingUrl) {
+        this.productTrackingUrl = productTrackingUrl;
+    }
+
+    public Double getStandardShipRate() {
+        return standardShipRate;
+    }
+
+    public void setStandardShipRate(Double standardShipRate) {
+        this.standardShipRate = standardShipRate;
+    }
+
+    public Boolean getMarketplace() {
+        return marketplace;
+    }
+
+    public void setMarketplace(Boolean marketplace) {
+        this.marketplace = marketplace;
+    }
+
+    public String getSellerInfo() {
+        return sellerInfo;
+    }
+
+    public void setSellerInfo(String sellerInfo) {
+        this.sellerInfo = sellerInfo;
+    }
+
+    public String getProductUrl() {
+        return productUrl;
+    }
+
+    public void setProductUrl(String productUrl) {
+        this.productUrl = productUrl;
+    }
+
+    public String getCategoryNode() {
+        return categoryNode;
+    }
+
+    public void setCategoryNode(String categoryNode) {
+        this.categoryNode = categoryNode;
+    }
+
+    public String getRhid() {
+        return rhid;
+    }
+
+    public void setRhid(String rhid) {
+        this.rhid = rhid;
+    }
+
+    public Boolean getBundle() {
+        return bundle;
+    }
+
+    public void setBundle(Boolean bundle) {
+        this.bundle = bundle;
+    }
+
+    public String getStock() {
+        return stock;
+    }
+
+    public void setStock(String stock) {
+        this.stock = stock;
+    }
+
+    public String getAddToCartUrl() {
+        return addToCartUrl;
+    }
+
+    public void setAddToCartUrl(String addToCartUrl) {
+        this.addToCartUrl = addToCartUrl;
+    }
+
+    public String getAffiliateAddToCartUrl() {
+        return affiliateAddToCartUrl;
+    }
+
+    public void setAffiliateAddToCartUrl(String affiliateAddToCartUrl) {
+        this.affiliateAddToCartUrl = affiliateAddToCartUrl;
+    }
+
+    public Boolean getFreeShippingOver35Dollars() {
+        return freeShippingOver35Dollars;
+    }
+
+    public void setFreeShippingOver35Dollars(Boolean freeShippingOver35Dollars) {
+        this.freeShippingOver35Dollars = freeShippingOver35Dollars;
+    }
+
+    public List<ImageEntity> getImageEntities() {
+        return imageEntities;
+    }
+
+    public void setImageEntities(List<ImageEntity> imageEntities) {
+        this.imageEntities = imageEntities;
+    }
+
+    public String getOfferType() {
+        return offerType;
+    }
+
+    public void setOfferType(String offerType) {
+        this.offerType = offerType;
+    }
+
+    public Boolean getAvailableOnline() {
+        return availableOnline;
+    }
+
+    public void setAvailableOnline(Boolean availableOnline) {
+        this.availableOnline = availableOnline;
+    }
+
+    public Double getMsrp() {
+        return msrp;
+    }
+
+    public void setMsrp(Double msrp) {
+        this.msrp = msrp;
+    }
+
+    public GiftOptions getGiftOptions() {
+        return giftOptions;
+    }
+
+    public void setGiftOptions(GiftOptions giftOptions) {
+        this.giftOptions = giftOptions;
+    }
+
+    public Boolean getIsTwoDayShippingEligible() {
+        return isTwoDayShippingEligible;
+    }
+
+    public void setIsTwoDayShippingEligible(Boolean isTwoDayShippingEligible) {
+        this.isTwoDayShippingEligible = isTwoDayShippingEligible;
+    }
+
+}
+public SearchApiBuilder(String apiKey, String query) {
+            this.apiKey = apiKey;
+            this.searchApiMap.put(API_KEY.getParameter(), apiKey);
+            this.query = query;
+            this.searchApiMap.put(QUERY.getParameter(), query);
+        }
+
+        public SearchApiBuilder setIsPublisherId(String isPublisherId) {
+            this.isPublisherId = isPublisherId;
+            this.searchApiMap.put(LS_PUBLISHER_ID.getParameter(), isPublisherId);
+            return this;
+        }
+
+        public SearchApiBuilder setCategoryId(String categoryId) {
+            this.categoryId = categoryId;
+            this.searchApiMap.put(CATEGORY_ID.getParameter(), categoryId);
+            return this;
+        }
+
+        public SearchApiBuilder setStart(String start) {
+            this.start = start;
+            this.searchApiMap.put(START.getParameter(), start);
+            return this;
+        }
+
+        public SearchApiBuilder setSort(SortApiValues sort) {
+            this.sort = sort.getValue();
+            this.searchApiMap.put(SORT.getParameter(), this.sort);
+            return this;
+        }
+
+        public SearchApiBuilder setOrder(String order) {
+            this.order = order;
+            this.searchApiMap.put(ORDER.getParameter(), order);
+            return this;
+        }
+
+        public SearchApiBuilder setNumberOfItemsInSearchResults(String numItems) {
+            this.numItems = numItems;
+            this.searchApiMap.put(NUMBER_OF_ITEMS.getParameter(), numItems);
+            return this;
+        }
+
+        public SearchApiBuilder setFormat(String format) {
+            this.format = format;
+            this.searchApiMap.put(FORMAT.getParameter(), format);
+            return this;
+        }
+
+        public SearchApiBuilder setResponseGroup(String responseGroup) {
+            this.responseGroup = responseGroup;
+            this.searchApiMap.put(RESPONSE_GROUP.getParameter(), responseGroup);
+            return this;
+        }
+
+        public SearchApiBuilder setFacet(String facet) {
+            this.facet = facet;
+            this.searchApiMap.put(FACET.getParameter(), facet);
+            return this;
+        }
+
+        public SearchApiBuilder setFacetFilter(String facetFilter) {
+            this.facetFilter = facetFilter;
+            this.searchApiMap.put(FACET_FILTER.getParameter(), facetFilter);
+            return this;
+        }
+
+        public SearchApiBuilder setFacetRange(String facetRange) {
+            this.facetRange = facetRange;
+            this.searchApiMap.put(FACET_RANGE.getParameter(), facetRange);
+            return this;
+        }
+
+        public SearchApi build() {
+            return new SearchApi(apiKey, isPublisherId, query, categoryId, start, sort, order, numItems, format,
+                    responseGroup, facet, facetFilter, facetRange, searchApiMap);
+        }
+    }
+}
+public class BaseClass {
+     URL = https://magento.softwaretestingboard.com
+    SEARCH_API_URL = http://api.magento.softwaretestingboard.com/v1/search
+    private static final String URL = ResourceBundle.getBundle("test").getString("URL");
+    protected SoftAssert softAssert;
+    public static final String _API_KEY = ResourceBundle.getBundle("api").getString("API_KEY");
+public class SearchApiSchema {
+
+    @JsonProperty("query")
+    private String query;
+    @JsonProperty("sort")
+    private String sort;
+    @JsonProperty("responseGroup")
+    private String responseGroup;
+    @JsonProperty("totalResults")
+    private Integer totalResults;
+    @JsonProperty("start")
+    private Integer start;
+    @JsonProperty("numItems")
+    private Integer numItems;
+    @JsonProperty("items")
+    private List<Item> items = null;
+    @JsonProperty("facets")
+    private List<Object> facets = null;
+
+    /**
+     * No args constructor for use in serialization
+     */
+    public SearchApiSchema() {
+    }
+
+    /**
+     * @param sort
+     * @param items
+     * @param start
+     * @param totalResults
+     * @param query
+     * @param facets
+     * @param responseGroup
+     * @param numItems
+     */
+    public SearchApiSchema(String query, String sort, String responseGroup, Integer totalResults, Integer start, Integer numItems, List<Item> items, List<Object> facets) {
+        super();
+        this.query = query;
+        this.sort = sort;
+        this.responseGroup = responseGroup;
+        this.totalResults = totalResults;
+        this.start = start;
+        this.numItems = numItems;
+        this.items = items;
+        this.facets = facets;
+    }
+
+    public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(String query) {
+        this.query = query;
+    }
+
+    public String getSort() {
+        return sort;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
+    }
+
+    public String getResponseGroup() {
+        return responseGroup;
+    }
+
+    public void setResponseGroup(String responseGroup) {
+        this.responseGroup = responseGroup;
+    }
+
+    public Integer getTotalResults() {
+        return totalResults;
+    }
+
+    public void setTotalResults(Integer totalResults) {
+        this.totalResults = totalResults;
+    }
+
+    public Integer getStart() {
+        return start;
+    }
+
+    public void setStart(Integer start) {
+        this.start = start;
+    }
+
+    public Integer getNumItems() {
+        return numItems;
+    }
+
+    public void setNumItems(Integer numItems) {
+        this.numItems = numItems;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public List<Object> getFacets() {
+        return facets;
+    }
+
+    public void setFacets(List<Object> facets) {
+        this.facets = facets;
+    }
+
+}
+    @BeforeTest
+    public void beforeTest() {
+        open(URL);
+    }
+
+    @BeforeMethod
+    public void beforeMethod() {
+        softAssert = new SoftAssert();
+    }
+
+    @AfterTest
+    public void afterTest() {
+        Selenide.clearBrowserCookies();
+        Selenide.close();
+    }
+
+}
